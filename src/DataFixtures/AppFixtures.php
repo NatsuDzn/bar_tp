@@ -10,9 +10,6 @@ use App\Entity\Category;
 use App\Entity\Country;
 use App\Entity\Client;
 
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
-
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)

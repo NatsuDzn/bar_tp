@@ -8,8 +8,8 @@
 			<li class="nav-item">
 				<a class="nav-link {{ routeName == 'home' ? 'active' : '' }}" href="{{ path('home') }}">Home</a>
 			</li>
-			{% for catagory in categories %}
-				<a class="nav-link {{ (category_id == catagory.id ) and (routeName == 'category') ? 'active' }}" href="{{ path('category', {id: catagory.id}) }}">{{ catagory.name | title }}</a>
+			{% for category in categories %}
+				<a class="nav-link {{ (category_id == category.id ) and (routeName == 'category') ? 'active' }}" href="{{ path('category', {id: category.id}) }}">{{ category.name | title }}</a>
 			{% endfor %}
 			<li class="nav-item">
 				<a class="nav-link {{ routeName == 'mentions' ? 'active' }}" href="{{ path('mentions') }}">Mentions</a>
