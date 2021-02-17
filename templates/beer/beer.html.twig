@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ beer.name }}{% endblock %}
+
+{% block body %}
+
+<h3>Beer: {{ beer.name }}</h3>
+<p><b>Description:</b> {{ beer.description }}</p>
+<p><b>Price:</b> {{ beer.price | format_currency('EUR', locale='fr') }}</p>
+<p><b>Degree:</b> {{ beer.degree }}</p>
+
+<div class="country">
+  <p><b>Country:</b>
+    {% if beer.country and beer.country.id %}
+    <a href="{{ path('country', {id: beer.country.id}) }}">{{ beer.country.name }}</a></p>
+
+  {% set imagePngPath = 'build/images/' ~ beer.country.name ~ '.svg' %}
+  <img class="country__flag" src="{{asset(imagePngPath)}}" />
+
+  {% endif %}
+</div>
+<p><b>Category:</b></p>
+<ul>
+  {% for category in beer.categories %}
+  <li><a href="{{ path('category', {id: category.id}) }}">{{ category.name | title }}</a> - {{ category.term }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

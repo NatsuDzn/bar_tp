@@ -1,0 +1,10 @@
+@import "~bootstrap/scss/bootstrap";
+@import "card";
+@import "country";
+
+.title {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+}

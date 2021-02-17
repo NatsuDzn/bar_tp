@@ -1,0 +1,12 @@
+.card-body {
+  div {
+    display: flex;
+
+    h5 {
+      margin-bottom: .5rem;
+      &:first-child {
+        margin-right: .5rem;
+      }
+    }
+  }
+}

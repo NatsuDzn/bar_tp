@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page country{% endblock %}
+
+{% block body %}
+
+<div class="title__wrapper">
+  <h2>{{ country.name | title }} Beers</h2>
+  {% set imagePngPath = 'build/images/' ~ country.name ~ '.svg' %}
+  <img class="country__flag" src="{{asset(imagePngPath)}}" />
+</div>
+{% for beer in beersFromCountry %}
+{% include '/partials/card.html.twig' with [beer] %}
+{% endfor %}
+
+{% endblock %}

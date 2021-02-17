@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %}Hello BarController!{% endblock %} #}
+
+{% block body %}
+  {% for beer in beers %}
+    {% include '/partials/card.html.twig' with {'beer': beer} %}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <div>
+      <h5 class="card-title">Beer:</h5>
+      <h5 class="card-title">
+        <a href="{{ path('beer', { 'id' : beer.id }) }}">{{ beer.name | capitalize }}</a>
+      </h5>
+    </div>
+    <p class="card-text"><b>Description:</b> {{ beer.description }}</p>
+    {# <b>Category:</b> {% for c in beer.categories %}<ul><li>{{ c.name }}</li></ul>{% endfor %} #}
+  </div>
+</div>
