@@ -41,3 +41,21 @@ npm run dev-server
 ## Schéma 
 
 ![Schéma](https://github.com/NatsuDzn/bar_tp/blob/master/assets/schema/schema.png)
+
+## Question 4
+
+```php
+public function findCatSpecial(int $id)
+    {
+        return $this->createQueryBuilder('c')
+            ->join('c.beers', 'b') // raisonner en terme de relation
+            ->where('b.id = :id')
+            ->setParameter('id', $id)
+            ->andWhere('c.term = :term')
+            ->setParameter('term', 'special')
+            ->getQuery()
+            ->getResult();
+    }
+```
+
+Cette méthode permet d’obtenir la catégorie spéciale d’une bière en utilisant son id, les résultats seront donc filtrés pour uniquement avoir les bières dont la catégorie est "spécial"
