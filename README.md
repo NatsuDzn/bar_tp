@@ -1,10 +1,10 @@
 ## Groupe 6
 
-LOUZOUN Nathanael
-TEIXEIRA FERNANDES Celine 
-MONTEFERRARIO Quentin
-GUEZ Geoffrey
-BARLET Maxime
+- LOUZOUN Nathanael
+- TEIXEIRA FERNANDES Celine 
+- MONTEFERRARIO Quentin
+- GUEZ Geoffrey
+- BARLET Maxime
 
 ## 🏁 Setup 
 
