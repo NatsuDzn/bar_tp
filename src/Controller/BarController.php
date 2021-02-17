@@ -56,7 +56,7 @@ class BarController extends AbstractController
     public function statistics(): Response
     {
       $clientRepo = $this->getDoctrine()->getRepository(Client::class);
-      $clients = $clientRepo->findAll();
+      $clients = $clientRepo->findClientsByOrder();
         
       return $this->render('statistic/statistics.html.twig', [
         'title' => 'Statistiques',

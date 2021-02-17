@@ -47,4 +47,13 @@ class ClientRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findClientsByOrder(): array
+    {
+        return $this
+            ->createQueryBuilder('client')
+            ->orderBy('client.number_beer', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

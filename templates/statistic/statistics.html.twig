@@ -6,7 +6,7 @@
 
 	<h1>{{ title }}</h1>
 
-	{% for client in clients|sort((a, b) => b.numberBeer <=> a.numberBeer) %}
+	{% for client in clients %}
 		{% include '/partials/client_card.html.twig' with [client] %}
 	{% endfor %}
 
