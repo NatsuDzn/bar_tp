@@ -49,6 +49,16 @@ class BarController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/statistics", name="statistics")
+     */
+    public function statistics(): Response
+    {
+      return $this->render('mentions/mentions.html.twig', [
+        'title' => 'Statistiques'
+      ]);
+    }
+
 
     /**
      * @Route("/beers", name="beers")
