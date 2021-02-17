@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page country
+{% block title %}Page {{ country.name | title }}
 {% endblock %}
 
 {% block body %}
 
 	<div class="title__wrapper">
-		<h2>{{ country.name | title }}Beers</h2>
+		<h2>{{ country.name | title }} Beers</h2>
 		{% set imagePngPath = 'build/images/' ~ country.name ~ '.svg' %}
 		<img class="country__flag" src="{{asset(imagePngPath)}}"/>
 	</div>
