@@ -1,17 +1,13 @@
 {% extends 'base.html.twig' %}
-{% block title %} {{ title }} {% endblock %}
+{% block title %}
+	{{ title }}
+{% endblock %}
 {% block body %}
 
-<h1>{{ title }}</h1>
+	<h1>{{ title }}</h1>
 
-{% for client in clients|sort((a, b) => b.numberBeer <=> a.numberBeer) %}
-<div class="card mt-5">
-  <div class="card-body">
-      <p class="card-text"><b>Nom complet:</b> {{ client.name }}</h5>
-      <p class="card-text"><b>Age:</b> {{ client.age }}</h5>
-      <p class="card-text"><b>Nombre de bière acheté:</b> {{ client.numberBeer }}</h5>
-  </div>
-</div>
-{% endfor %}
+	{% for client in clients|sort((a, b) => b.numberBeer <=> a.numberBeer) %}
+		{% include '/partials/client_card.html.twig' with [client] %}
+	{% endfor %}
 
 {% endblock %}

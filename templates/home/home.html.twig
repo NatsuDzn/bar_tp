@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bar à Beer{% endblock %}
+{% block title %}Bar à Beer
+{% endblock %}
 
 {% block body %}
 
-<h1>{{ title }}</h1>
+	<h1>{{ title }}</h1>
 
-{% for beer in beers %}
-{% include '/partials/card.html.twig' with [beer] %}
-{% endfor %}
+	{% for beer in beers %}
+		{% include '/partials/card.html.twig' with [beer] %}
+	{% endfor %}
 
 {% endblock %}

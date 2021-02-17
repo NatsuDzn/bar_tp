@@ -1,24 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="{{ path('home') }}">The Simple Bar/beers</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link {{ routeName == 'home' ? 'active' : '' }}" href="{{ path('home') }}">Home</a>
-            </li>
-            {% for catagory in categories %}
-            <a class="nav-link {{ (category_id == catagory.id ) and (routeName == 'category') ? 'active' }}"
-                href="{{ path('category', {id: catagory.id}) }}">{{ catagory.name | title }}</a>
-            {% endfor %}
-            <li class="nav-item">
-                <a class="nav-link {{ routeName == 'mentions' ? 'active' }}" href="{{ path('mentions') }}">Mentions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ routeName == 'statistics' ? 'active' }}" href="{{ path('statistics') }}">Statistics</a>
-            </li>
-        </ul>
-    </div>
+	<a class="navbar-brand" href="{{ path('home') }}">The Simple Bar/beers</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link {{ routeName == 'home' ? 'active' : '' }}" href="{{ path('home') }}">Home</a>
+			</li>
+			{% for catagory in categories %}
+				<a class="nav-link {{ (category_id == catagory.id ) and (routeName == 'category') ? 'active' }}" href="{{ path('category', {id: catagory.id}) }}">{{ catagory.name | title }}</a>
+			{% endfor %}
+			<li class="nav-item">
+				<a class="nav-link {{ routeName == 'mentions' ? 'active' }}" href="{{ path('mentions') }}">Mentions</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link {{ routeName == 'statistics' ? 'active' }}" href="{{ path('statistics') }}">Statistics</a>
+			</li>
+		</ul>
+	</div>
 </nav>

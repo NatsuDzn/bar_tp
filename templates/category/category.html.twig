@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page catégorie{% endblock %}
+{% block title %}Page catégorie
+{% endblock %}
 
 {% block body %}
 
-<h2>Les bières {{ category.name | title }}</h2>
-{% for beer in beersFromCategory %}
-{% include '/partials/card.html.twig' with {'beer': beer} %}
-{% endfor %}
+	<h2>Les bières{{ category.name | title }}</h2>
+	{% for beer in beersFromCategory %}
+		{% include '/partials/card.html.twig' with {'beer': beer} %}
+	{% endfor %}
 
 {% endblock %}
