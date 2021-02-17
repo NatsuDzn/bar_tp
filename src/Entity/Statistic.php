@@ -18,14 +18,16 @@ class Statistic
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=beer::class)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $beer_id;
+    private $beer;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=client::class)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $client_id;
+    private $client;
 
     /**
      * @ORM\Column(type="integer")
@@ -42,26 +44,26 @@ class Statistic
         return $this->id;
     }
 
-    public function getBeerId(): ?int
+    public function getBeerId(): ?beer
     {
-        return $this->beer_id;
+        return $this->beer;
     }
 
-    public function setBeerId(int $beer_id): self
+    public function setBeerId(?beer $beer): self
     {
-        $this->beer_id = $beer_id;
+        $this->beer = $beer;
 
         return $this;
     }
 
-    public function getClientId(): ?int
+    public function getClientId(): ?client
     {
-        return $this->client_id;
+        return $this->client;
     }
 
-    public function setClientId(int $client_id): self
+    public function setClientId(?client $client): self
     {
-        $this->client_id = $client_id;
+        $this->client = $client;
 
         return $this;
     }

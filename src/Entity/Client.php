@@ -18,12 +18,12 @@ class Client
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="decimal", precision=2, scale=0, nullable=true)
+     * @ORM\Column(type="decimal", precision=4, scale=1, nullable=true)
      */
     private $weight;
 
@@ -38,7 +38,7 @@ class Client
     private $number_beer;
 
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $age;
 
@@ -52,7 +52,7 @@ class Client
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -97,13 +97,13 @@ class Client
 
     public function getAge(): ?int
     {
-      return $this->age;
+        return $this->age;
     }
 
     public function setAge(?int $age): self
     {
-      $this->age = $age;
+        $this->age = $age;
 
-      return $this;
+        return $this;
     }
 }
