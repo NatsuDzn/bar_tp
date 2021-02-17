@@ -20,10 +20,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
+            {% if app.request.attributes.get('_route') != 'statistics' %}
             <p>Sidebar</p>
-
-            {% if app.request.attributes.get('_route') == 'statistics' %}
+            {% else %}
             <p>Nombre de clients: {{clients|length}}</p>
+            <p>Moyenne: {{clients|average}}</p>
+	        <p>Ecart type: {{clients|deviation}}</p>
             {% endif %}
         </div>
         <div class="col-md-8">
