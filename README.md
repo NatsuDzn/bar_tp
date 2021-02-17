@@ -37,3 +37,7 @@ symfony server:start
 ```
 npm run dev-server
 ```
+
+## Schéma 
+
+![Schéma](https://github.com/NatsuDzn/bar_tp/blob/master/assets/schema/schema.png)
