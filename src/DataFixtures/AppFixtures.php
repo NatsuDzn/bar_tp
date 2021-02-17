@@ -76,37 +76,38 @@ class AppFixtures extends Fixture
         $repoCountry = $manager->getRepository(Country::class);
         $repoCategory = $manager->getRepository(Category::class);
         $categories = $repoCategory->findAll();
-        while ($count < 30) {
+        while ($count < 20) {
             $beer = new Beer();
             // associer un pays une fois sur deux à une bière
 
-                $name = $countries[rand(0, count($countries) - 1)];
-                $country = $repoCountry->findOneBy([
-                    'name' => $name,
-                ]);
+            $name = $countries[rand(0, count($countries) - 1)];
+            $country = $repoCountry -> findOneBy([
+                'name' => $name,
+            ]);
 
 
-                $beer->addCategory($categories[random_int(0, count($categories) - 1)]);
-                $beer->addCategory($categories[random_int(0, count($categories) - 1)]);
-                // ajout d'un country
-                $beer->setCountry($country);
+            $beer -> addCategory($categories[random_int(0, count($categories) - 1)]);
+            $beer ->addCategory($categories[random_int(0, count($categories) - 1)]);
+            // ajout d'un country
+            $beer ->setCountry($country);
 
 
-            $beer->setName($names[random_int(0, count($names) - 1)]);
-            $beer->setDescription($this->lorem(random_int(5, 20)));
+            $beer ->setName($names[random_int(0, count($names) - 1)]);
+            $beer ->setDescription($this ->lorem(random_int(5, 20)));
 
-            $date = new \DateTime('2000-01-01');
+            $date = new\ DateTime('2000-01-01');
             $day = random_int(10, 1000);
-            $date->add(new \DateInterval("P".$day."D"));
+            $date ->add(new\ DateInterval("P".$day.
+                "D"));
 
 
-            $beer->setPrice(rand(40, 200) / 10);
+            $beer ->setPrice(rand(40, 200) / 10);
 
 
-            $beer->setDegree(rand(40, 90) / 10);
-            $beer->setPublishedAt($date);
+            $beer ->setDegree(rand(40, 90) / 10);
+            $beer ->setPublishedAt($date);
 
-            $manager->persist($beer);
+            $manager ->persist($beer);
             $count++;
         }
 

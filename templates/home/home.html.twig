@@ -7,17 +7,7 @@
 <h1>{{ title }}</h1>
 
 {% for beer in beers %}
-<div class="card mt-5">
-  <div class="card-body">
-    <div>
-      <h5 class="card-title">Beer:</h5>
-      <h5 class="card-title">
-        <a href="{{ path('beer', { 'id' : beer.id }) }}">{{ beer.name | capitalize }}</a>
-      </h5>
-    </div>
-    <p class="card-text"><b>Description:</b> {{ beer.description }}</p>
-  </div>
-</div>
+{% include '/partials/card.html.twig' with [beer] %}
 {% endfor %}
 
 {% endblock %}
