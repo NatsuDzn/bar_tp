@@ -2,12 +2,16 @@
 {% block title %} {{ title }} {% endblock %}
 {% block body %}
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{ title }}</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+<h1>{{ title }}</h1>
+
+{% for client in clients|sort((a, b) => b.numberBeer <=> a.numberBeer) %}
+<div class="card mt-5">
+  <div class="card-body">
+      <p class="card-text"><b>Nom complet:</b> {{ client.name }}</h5>
+      <p class="card-text"><b>Age:</b> {{ client.age }}</h5>
+      <p class="card-text"><b>Nombre de bière acheté:</b> {{ client.numberBeer }}</h5>
+  </div>
 </div>
+{% endfor %}
 
 {% endblock %}

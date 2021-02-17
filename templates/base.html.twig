@@ -14,13 +14,17 @@
 {{
     render(controller('App\\Controller\\BarController:mainMenu', {
         'routeName' : app.request.attributes.get('_route'),
-        'category_id' : app.request.get('id') ?? ''
+        'category_id' : app.request.get('id') ?? '',
     }))
 }}
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            Sidebar
+            <p>Sidebar</p>
+
+            {% if app.request.attributes.get('_route') == 'statistics' %}
+            <p>Nombre de clients: {{clients|length}}</p>
+            {% endif %}
         </div>
         <div class="col-md-8">
             {% block body %}{% endblock %}

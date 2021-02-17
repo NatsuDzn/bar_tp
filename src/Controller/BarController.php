@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Beer;
 use App\Entity\Category;
 use App\Entity\Country;
+use App\Entity\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -54,8 +55,12 @@ class BarController extends AbstractController
      */
     public function statistics(): Response
     {
-      return $this->render('mentions/mentions.html.twig', [
-        'title' => 'Statistiques'
+      $clientRepo = $this->getDoctrine()->getRepository(Client::class);
+      $clients = $clientRepo->findAll();
+        
+      return $this->render('statistic/statistics.html.twig', [
+        'title' => 'Statistiques',
+        'clients' => $clients
       ]);
     }
 
@@ -147,11 +152,14 @@ class BarController extends AbstractController
 
         $categories = $categoryRepo->findBy(['term' => 'normal']);
 
+        $clientRepo = $this->getDoctrine()->getRepository(Client::class);
+        $clients = $clientRepo->findAll();
 
         return $this->render('partials/menu.html.twig', [
             'routeName' => $routeName,
             'category_id' => $category_id,
-            'categories' => $categories
+            'categories' => $categories,
+            'clients' => $clients
         ]);
     }
 }
