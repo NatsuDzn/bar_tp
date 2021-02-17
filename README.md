@@ -1,4 +1,10 @@
-## Groupe 6
+## 📝 Table of Contents
+- [Groupe](#authors)
+- [Setup](#setup)
+- [Schéma](#schema)
+- [Partie 4](#part4)
+
+## Groupe 6 <a name = "authors"></a>
 
 - LOUZOUN Nathanael
 - TEIXEIRA FERNANDES Celine 
@@ -6,7 +12,7 @@
 - GUEZ Geoffrey
 - BARLET Maxime
 
-## 🏁 Setup 
+## 🏁 Setup <a name = "setup"></a>
 
 ### Install dependencies
 
@@ -22,6 +28,7 @@ Check the .env file
 
 ```
 php bin/console doctrine:database:create
+php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 ```
@@ -38,11 +45,11 @@ symfony server:start
 npm run dev-server
 ```
 
-## Schéma 
+## Schéma <a name = "schema"></a>
 
 ![Schéma](https://github.com/NatsuDzn/bar_tp/blob/master/assets/schema/schema.png)
 
-## Question 4
+## Question 4 <a name = "part4"></a>
 
 ```php
 public function findCatSpecial(int $id)
@@ -58,4 +65,7 @@ public function findCatSpecial(int $id)
     }
 ```
 
-Cette méthode permet d’obtenir la catégorie spéciale d’une bière en utilisant son id, les résultats seront donc filtrés pour uniquement avoir les bières dont la catégorie est "spécial"
+Cette méthode est une requête vers la BDD afin de trouver une bière en fonction de son ID et du terme (term) spécial.<br>
+On voit que la fonction prend un paramètre (un int) qui correspondra à l’id de la bière et va faire une recherche dans la BDD.<br>
+Cette recherche sortira la bière qui aura l’id correspondant ainsi que le terme (term) ‘spécial’.<br>
+Cette fonction est utile si on recherche une bière avec le terme (term) ‘spécial’ en fonction de son id.<br>
