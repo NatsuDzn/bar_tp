@@ -5,9 +5,16 @@
 
 {% block body %}
 
+
+{% if beersFromCategory|length > 0 %}
 	<h2>Les bières {{ category.name | title }}</h2>
+
 	{% for beer in beersFromCategory %}
 		{% include '/partials/card.html.twig' with {'beer': beer} %}
 	{% endfor %}
+{% else %}
+	<h2>Aucune bières {{ category.name | title }}</h2>
+{% endif %}
+
 
 {% endblock %}
